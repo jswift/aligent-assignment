@@ -1,6 +1,6 @@
 <?php
 /**
- * Object Finder (The assignment of coding skills for Aligent Consulting
+ * Object Finder (The assignment of coding challenge for Aligent Consulting
  *
  * @copyright Copyright to Aligent Consulting in 2019
  * @since     10 July 2019
@@ -75,18 +75,18 @@ class ObjectsController extends AbstractActionController
      */
     private function _postAction()
     {
-        $inputs = '{
-  "samples": [
-    {
-      "x": -6.0,
-      "y": -8.0,
-      "distance": 5.0
-    }, {
-      "x": 0.0,
-      "y": 0.0,
-      "distance": 2.0
-} ]
-}';
+        $inputs = '{"samples": [{"x": 1.0,"y": 1.0,"distance": 5.0}, {"x": 3.0,"y": 3.0,"distance": 5.0}]}';
+
+        $inputs = '{"samples": [{"x": 6.0,"y": 8.0,"distance": 5.0}, {"x": 0.0,"y": 0.0,"distance": 10.0}]}';
+
+        //$inputs = '{"samples": [{"x": 6.0,"y": 8.0,"distance": 5.0}, {"x": 0.0,"y": 0.0,"distance": 15.0}]}';
+
+        //$inputs = '{"samples": [{"x": 6.0,"y": 8.0,"distance": 5.0}, {"x": 0.0,"y": 0.0,"distance": 12.0}]}';
+
+        //$inputs = '{"samples": [{"x": 6.0,"y": 8.0,"distance": 12.0}, {"x": 0.0,"y": 0.0,"distance": 5.0}]}';
+
+        //$inputs = '{"samples": [{"x": -6.0,"y": -8.0,"distance": 5.0}, {"x": 0.0,"y": 0.0,"distance": 5.0}]}';
+
         try {
             $inputsValues = Json::decode($inputs, Json::TYPE_ARRAY);
         }

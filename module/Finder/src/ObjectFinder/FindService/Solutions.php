@@ -1,6 +1,6 @@
 <?php
 /**
- * Object Finder (The assignment of coding skills for Aligent Consulting
+ * Object Finder (The assignment of coding challenge for Aligent Consulting
  *
  * @copyright Copyright to Aligent Consulting in 2019
  * @since     10 July 2019
@@ -25,9 +25,11 @@ class Solutions
 
     private $algorithm;
 
-    private $startTime = -1;
-    private $endTime = -1;
+    private $startTime     = -1;
+    private $endTime       = -1;
     private $timeConsuming = 0;
+
+    const DEFAULT_PRECISION = 1;
 
     /**
      * The constructor
@@ -138,13 +140,19 @@ class Solutions
     /**
      * Get all the results
      *
+     * @param $precision
      * @return  array<Inputs, Solutions>
      */
-    public function getResult()
+    public function getResult($precision = self::DEFAULT_PRECISION)
     {
-        $inputs = $this->getInputs()->listLocations();
-        $outpus = $this->getSolutions()->listLocations();
+        $inputs = $this->getInputs()->listLocations($precision);
+        $outputs = array();
+
+        if($this->getSolutions() != null)
+        {
+            $outputs = $this->getSolutions()->listLocations($precision);
+        }
         return array(KnownLocations::NAME_TAG => $inputs,
-                        SourceLocations::NAME_TAG => $outpus);
+                        SourceLocations::NAME_TAG => $outputs);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Object Finder (The assignment of coding skills for Aligent Consulting
+ * Object Finder (The assignment of coding challenge for Aligent Consulting
  *
  * @copyright Copyright to Aligent Consulting in 2019
  * @since     10 July 2019
@@ -57,9 +57,17 @@ class FindService
      */
     public function find(KnownLocations $locations)
     {
-        $solution = $this->algorithm->locate($locations);
 
-        $solution->setAlgorithm($this->algorithm);
+        if ($this->algorithm->checkKnownData($locations))
+        {
+            $solution = $this->algorithm->locate($locations);
+            $solution->setAlgorithm($this->algorithm);
+
+        }
+        else
+        {
+            $solution = new Solutions($locations);
+        }
 
         return $solution;
     }

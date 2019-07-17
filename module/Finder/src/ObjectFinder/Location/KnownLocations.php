@@ -1,6 +1,6 @@
 <?php
 /**
- * Object Finder (The assignment of coding skills for Aligent Consulting
+ * Object Finder (The assignment of coding challenge for Aligent Consulting
  *
  * @copyright Copyright to Aligent Consulting in 2019
  * @since     10 July 2019
@@ -20,14 +20,15 @@ class KnownLocations extends MultipleLocationsAbstract
     /**
      * List all the locations in the current instance
      *
-     * @since      Class available since 10 July 2019
+     * @param $coordinatePrecision
+     * @return array<Location>
      */
-    public function listLocations()
+    public function listLocations($coordinatePrecision = Location::NO_COORDINATE_PRECISION)
     {
         $result = array();
         for($i = 0; $i < $this->amount; $i++)
         {
-            $result[$i] = $this->locations[$i]->getData($includingDistance = true);
+            $result[$i] = $this->locations[$i]->getData($coordinatePrecision, $includingDistance = true);
         }
 
         return $result;

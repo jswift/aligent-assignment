@@ -1,6 +1,6 @@
 <?php
 /**
- * Object Finder (The assignment of coding skills for Aligent Consulting
+ * Object Finder (The assignment of coding challenge for Aligent Consulting
  *
  * @copyright Copyright to Aligent Consulting in 2019
  * @since     10 July 2019

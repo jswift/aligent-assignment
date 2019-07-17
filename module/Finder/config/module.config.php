@@ -1,6 +1,6 @@
 <?php
 /**
- * Object Finder (The assignment of coding skills for Aligent Consulting
+ * Object Finder (The assignment of coding challenge for Aligent Consulting
  *
  * This file includes all the configuration items of this module which relates to the
  * essential configuration of Zend Framework and all the customized configurations.

@@ -21,9 +21,10 @@ abstract class MultipleLocationsAbstract
     /**
      * A definition of listing locations for sub-classes
      *
+     * @param $coordinatePrecision
      * @return Locations
      */
-    abstract public function listLocations();
+    abstract public function listLocations($coordinatePrecision = -1);
 
     /**
      * Add one location as a result
@@ -52,7 +53,7 @@ abstract class MultipleLocationsAbstract
      */
     public function size()
     {
-        return $this->solutionAmount;
+        return $this->amount;
     }
 
     /**

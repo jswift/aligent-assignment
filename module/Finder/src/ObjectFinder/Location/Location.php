@@ -24,6 +24,8 @@ class Location
     const NAME_Y = "y";
     const NAME_DISTANCE = "distance";
 
+    const NO_COORDINATE_PRECISION = -1;
+
     /**
      * The constructor
      *
@@ -41,15 +43,24 @@ class Location
     /**
      * Get the locations' data
      *
+     * @param $coordinatePrecision
      * @param $includingDistance
      * @return array
      */
-    public function getData($includingDistance = false)
+    public function getData($coordinatePrecision = self::NO_COORDINATE_PRECISION, $includingDistance = false)
     {
-        $result = array(self::NAME_X=> $this->x, self::NAME_Y => $this->y);
+
+        if ($coordinatePrecision != self::NO_COORDINATE_PRECISION)
+        {
+            $result = array(self::NAME_X=> number_format($this->x,$coordinatePrecision), self::NAME_Y => number_format($this->y,$coordinatePrecision));
+        }
+        else
+        {
+            $result = array(self::NAME_X=> $this->x, self::NAME_Y => $this->y);
+        }
 
         if($includingDistance){
-            $result[self::NAME_DISTANCE] = $this->distance;
+            $result[self::NAME_DISTANCE] = number_format($this->distance,$coordinatePrecision);
         }
 
         return $result;
