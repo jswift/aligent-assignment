@@ -47,12 +47,13 @@ class ObjectsController extends AbstractActionController
      */
     public function indexAction()
     {
-        $method = strtoupper($this->params()->fromQuery("method", Request::METHOD_GET));
+        //$method = strtoupper($this->params()->fromQuery("METHOD", Request::METHOD_GET));
+        $method = strtoupper($this->getRequest()->getMethod());
         switch ($method)
         {
             case Request::METHOD_GET:
-                //return $this->_getAction();
-                return $this->_postAction();
+                return $this->_getAction();
+                //return $this->_postAction();
                 break;
             case Request::METHOD_POST:
                 return $this->_postAction();
@@ -75,9 +76,10 @@ class ObjectsController extends AbstractActionController
      */
     private function _postAction()
     {
-        $inputs = '{"samples": [{"x": 1.0,"y": 1.0,"distance": 5.0}, {"x": 3.0,"y": 3.0,"distance": 5.0}]}';
+        $inputs = $this->getRequest()->getContent();
+        //$inputs = '{"samples": [{"x": 1.0,"y": 1.0,"distance": 5.0}, {"x": 3.0,"y": 3.0,"distance": 5.0}]}';
 
-        $inputs = '{"samples": [{"x": 6.0,"y": 8.0,"distance": 5.0}, {"x": 0.0,"y": 0.0,"distance": 10.0}]}';
+        //$inputs = '{"samples": [{"x": 6.0,"y": 8.0,"distance": 5.0}, {"x": 0.0,"y": 0.0,"distance": 10.0}]}';
 
         //$inputs = '{"samples": [{"x": 6.0,"y": 8.0,"distance": 5.0}, {"x": 0.0,"y": 0.0,"distance": 15.0}]}';
 

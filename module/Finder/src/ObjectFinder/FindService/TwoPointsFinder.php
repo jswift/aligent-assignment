@@ -71,6 +71,15 @@ class TwoPointsFinder implements FinderAlgorithmInterface
             return false;
         }
 
+        $data = $locations->getLocations();
+        foreach ($data as $single)
+        {
+            if($single->getDistance() <= 0)
+            {
+                return false;
+            }
+        }
+
         return true;
     }
 
