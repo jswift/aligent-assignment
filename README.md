@@ -41,10 +41,10 @@ then install the application,
 composer install
 ```
 
-and if you want to run the unit tests, you also need to change the config for PHPUnit,
+and if you want to run the unit tests, you also need to change the config (the value of HOST) for PHPUnit,
 
 ```
-vi ....... 
+vi module/Finder/test/ObjectsControllerTest.php
 ```
 
 Finally, test it. There are many ways to test it. Here is an example to test it by a curl command.
